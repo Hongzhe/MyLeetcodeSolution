@@ -1,7 +1,5 @@
 package adt;
 
-import leetcode.bst.SerializeBST;
-
 import java.util.Stack;
 
 public class TreeNode {
@@ -51,16 +49,5 @@ public class TreeNode {
             if(node.left != null) stack.push(node.left);
         }
         System.out.println(sb.toString());
-    }
-
-    public static void main(String[] args) {
-        //Integer[] nums = {8, 3, 10, 1, 6, null, 14, null, null, 4, 7, null, null,13, null};
-        Integer[] nums = {1,2,3,4,5,null,6,null,null,7,8};
-        TreeNode treeNode = TreeNode.fromArray(nums);
-        //TreeNode.printTree(treeNode);
-        TreeNode.printBFS(treeNode);
-        SerializeBST serializeBST = new SerializeBST();
-        String str = serializeBST.serialize(treeNode);
-        System.out.println(str);
     }
 }
