@@ -74,6 +74,19 @@ public class ArithmeticSlices {
         return (1 + n) * n / 2;
     }
 
+    public int numberOfArithmeticSlices2(int[] A) {
+        int res = 0, acc = 0;
+        for (int i = 2; i < A.length; i++) {
+            if (A[i] - A[i-1] == A[i-1] - A[i-2]) {
+                acc = acc+1;
+                res += acc;
+            } else {
+                acc = 0;
+            }
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
         ArithmeticSlices target = new ArithmeticSlices();
         int[] arr = {1, 2, 3, 4};
