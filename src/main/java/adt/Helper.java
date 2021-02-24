@@ -1,6 +1,7 @@
 package adt;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -26,8 +27,12 @@ public class Helper {
     public static String arrayToStr(int[][] array) {
         StringBuilder sb = new StringBuilder("[");
         for (int[] item : array) {
-            sb.append('[').append(item[0]).append(',').append(item[1]).append(']');
-            sb.append(',');
+            sb.append('[');
+            for (int n : item) {
+                sb.append(n).append(',');
+            }
+            sb.deleteCharAt(sb.length()-1);
+            sb.append(']').append(',');
         }
         sb.deleteCharAt(sb.length() - 1);
         sb.append("]");
@@ -42,6 +47,16 @@ public class Helper {
             result[i] = Integer.parseInt(arr[i]);
         }
         return result;
+    }
+
+    public static boolean arrayEquals(int[][] a, int[][] b) {
+        if (a.length != b.length) return false;
+        for (int i = 0; i < a.length; i++) {
+            if (!Arrays.equals(a[i], b[i])) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static <T> boolean listEqual(List<T> list, String expected) {
