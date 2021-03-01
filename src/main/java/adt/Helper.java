@@ -44,7 +44,7 @@ public class Helper {
         String[] arr = s.split(",");
         int[] result = new int[arr.length];
         for (int i = 0; i < arr.length; i++) {
-            result[i] = Integer.parseInt(arr[i]);
+            result[i] = Integer.parseInt(arr[i].trim());
         }
         return result;
     }
