@@ -1,7 +1,4 @@
-package string;
-
-import java.util.HashMap;
-import java.util.Map;
+package divideAndConquer;
 
 /**
  * Given a string s and an integer k, return the length of the longest substring of s such that
