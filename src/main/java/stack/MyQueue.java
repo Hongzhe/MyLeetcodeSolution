@@ -7,7 +7,6 @@ public class MyQueue {
 
     private final Stack<Integer> stackA;
     private final Stack<Integer> stackB;
-    private Integer head = null;
 
     /** Initialize your data structure here. */
     public MyQueue() {
