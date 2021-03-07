@@ -1,5 +1,9 @@
 package stack;
 
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.LinkedList;
+
 /**
  * Given a circular array (the next element of the last element is the first element of the array)
  * , print the Next Greater Number for every element.
@@ -17,6 +21,23 @@ package stack;
 public class NextGreaterNumber2 {
 
     public int[] nextGreaterElements(int[] nums) {
+        int[] res = new int[nums.length];
+        Arrays.fill(res, -1);
+        Deque<Integer> stack = new LinkedList<>();
+        int n = nums.length;
+        for (int i = 0; i < n*2-1; i++) {
+            while (!stack.isEmpty() && nums[stack.peek()] < nums[i %n]) {
+                res[stack.pop()] = nums[i % n];
+            }
+            stack.push(i % n);
+        }
+        return res;
+    }
 
+    public static void main(String[] args) {
+        NextGreaterNumber2 target = new NextGreaterNumber2();
+        int[] nums = {1,2,1};
+        int[] res = target.nextGreaterElements(nums);
+        System.out.println(Arrays.equals(res, new int[]{2,-1,2}));
     }
 }
