@@ -59,7 +59,7 @@ public class NextGreaterElement1 {
         return res;
     }
 
-    //find out the next greater during iteration
+    //find out the next greater during iteration.  单调栈
     public int[] nextGreaterElement2(int[] nums1, int[] nums2) {
         Map<Integer, Integer> map = new HashMap<>();
         Stack<Integer> stack = new Stack<>();
